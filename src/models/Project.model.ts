@@ -9,11 +9,11 @@ export enum ProjectStatus {
 const projectSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },
-    description: { type: String, required: true, trim: true },
+    description: { type: String, trim: true },
     status: {
       type: String,
       enum: Object.values(ProjectStatus),
-      required: true,
+      default: ProjectStatus.ACTIVE,
     },
     isDeleted: { type: Boolean, default: false },
     createdBy: { type: Schema.Types.ObjectId, ref: "User", required: true },

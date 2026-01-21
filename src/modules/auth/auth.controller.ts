@@ -1,4 +1,4 @@
-import { Router, type Request, type Response } from "express";
+import type { Request, Response } from "express";
 import { UserRole } from "../../models/User.model.js";
 import {
   createAdmin,
@@ -89,11 +89,3 @@ export const createAdminHandler = async (req: Request, res: Response) => {
   }
 };
 
-const router = Router();
-
-router.post("/auth/login", loginHandler);
-router.post("/auth/invite", inviteHandler);
-router.post("/auth/register-via-invite", registerViaInviteHandler);
-router.post("/auth/create-admin", createAdminHandler);
-
-export default router;

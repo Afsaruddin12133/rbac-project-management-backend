@@ -17,10 +17,7 @@ mongoose.connection.on("error", (error) => {
 const startServer = async () => {
   try {
     await mongoose.connect(MONGO_URI);
-    app.listen(PORT, () => {
-		
-      console.log(`Server running on port ${PORT}`);
-    });
+    app.listen(PORT);
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error);
     process.exit(1);
